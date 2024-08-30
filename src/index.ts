@@ -1,20 +1,16 @@
-import { AppDataSource } from "./data-source"
-import { User } from "./entity/User"
+import 'reflect-metadata';
+import 'dotenv/config';
+import app from './app';
+import { AppDataSource } from '../data-source';
+import { ProductRepository } from './repositories/ProductRepository';
 
-AppDataSource.initialize().then(async () => {
+AppDataSource.initialize()
+    .then(async () => {
+        const productRepository = new ProductRepository(AppDataSource);
 
-    console.log("Inserting a new user into the database...")
-    const user = new User()
-    user.firstName = "Timber"
-    user.lastName = "Saw"
-    user.age = 25
-    await AppDataSource.manager.save(user)
-    console.log("Saved a new user with id: " + user.id)
-
-    console.log("Loading users from the database...")
-    const users = await AppDataSource.manager.find(User)
-    console.log("Loaded users: ", users)
-
-    console.log("Here you can setup and run express / fastify / any other framework.")
-
-}).catch(error => console.log(error))
+        app.set('port', process.env.PORT || 8090);
+        app.listen(app.get('port'), () => {
+            console.info('Server started on http://localhost:' + app.get('port'));
+        });
+    })
+    .catch(error => console.log(error));

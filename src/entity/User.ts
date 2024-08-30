@@ -1,18 +1,24 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class User {
+export class Product {
 
     @PrimaryGeneratedColumn()
-    id: number
+    id: number;
 
     @Column()
-    firstName: string
+    name: string;
 
     @Column()
-    lastName: string
+    imgUrl: string;
 
-    @Column()
-    age: number
+    @Column('int')
+    quantity: number;
 
+    @Column('decimal')
+    price: number;
+
+    @Column('simple-array')
+    category: string[];
+    
 }
