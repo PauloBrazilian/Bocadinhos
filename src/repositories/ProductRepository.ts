@@ -1,5 +1,5 @@
 import { Repository, DataSource } from 'typeorm';
-import { Product } from '../entity/User';
+import { Product } from '../entity/Product';
 
 export class ProductRepository extends Repository<Product> {
     

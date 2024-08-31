@@ -15,14 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 require("dotenv/config");
 const app_1 = __importDefault(require("./app"));
-const data_source_1 = require("./data-source");
-const ProductRepository_1 = require("./repositories/ProductRepository");
-data_source_1.AppDataSource.initialize()
+const DataSource_1 = require("./DataSource");
+DataSource_1.AppDataSource.initialize()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
-    const productRepository = new ProductRepository_1.ProductRepository(data_source_1.AppDataSource);
     app_1.default.set('port', process.env.PORT || 8090);
     app_1.default.listen(app_1.default.get('port'), () => {
         console.info('Server started on http://localhost:' + app_1.default.get('port'));
     });
 }))
-    .catch(error => console.log(error));
+    .catch(error => console.log('Error during Data Source initialization:', error));

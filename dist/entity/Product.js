@@ -9,37 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductDTO = void 0;
-const class_validator_1 = require("class-validator");
-class ProductDTO {
-}
-exports.ProductDTO = ProductDTO;
+exports.Product = void 0;
+const typeorm_1 = require("typeorm");
+let Product = class Product {
+};
+exports.Product = Product;
 __decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], ProductDTO.prototype, "name", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], ProductDTO.prototype, "imgUrl", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsPositive)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], ProductDTO.prototype, "quantity", void 0);
+], Product.prototype, "id", void 0);
 __decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)(),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 255 }),
+    __metadata("design:type", String)
+], Product.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 255, nullable: true }),
+    __metadata("design:type", String)
+], Product.prototype, "imgUrl", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'int' }),
     __metadata("design:type", Number)
-], ProductDTO.prototype, "price", void 0);
+], Product.prototype, "quantity", void 0);
 __decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsArray)(),
-    (0, class_validator_1.IsString)({ each: true }),
+    (0, typeorm_1.Column)({ type: 'decimal' }),
+    __metadata("design:type", Number)
+], Product.prototype, "price", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', array: true, nullable: true }),
     __metadata("design:type", Array)
-], ProductDTO.prototype, "category", void 0);
+], Product.prototype, "category", void 0);
+exports.Product = Product = __decorate([
+    (0, typeorm_1.Entity)()
+], Product);

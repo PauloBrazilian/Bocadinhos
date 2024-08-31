@@ -11,10 +11,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductRepository = void 0;
 const typeorm_1 = require("typeorm");
-const User_1 = require("../entity/User");
+const Product_1 = require("../entity/Product");
 class ProductRepository extends typeorm_1.Repository {
     constructor(dataSource) {
-        super(User_1.Product, dataSource.createEntityManager());
+        super(Product_1.Product, dataSource.createEntityManager());
     }
     findByName(name) {
         return __awaiter(this, void 0, void 0, function* () {
