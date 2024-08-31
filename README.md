@@ -22,7 +22,7 @@ A **Delícias Rápidas** é uma empresa local especializada na comercialização
 ## Tecnologias Utilizadas
 
 - **Frontend**: [React](https://reactjs.org/) para uma interface de usuário dinâmica e responsiva.
-- **Backend**: [Java](https://www.oracle.com/java/) com [Spring Boot](https://spring.io/projects/spring-boot) para gerenciamento de servidores e APIs.
+- **Backend**: [Node.js](https://nodejs.org/pt) com [Express.js](https://expressjs.com/pt-br/) para gerenciamento de servidores e APIs.
 - **Banco de Dados**: [PostgreSql](https://www.mongodb.com/) para armazenamento de dados escalável e flexível.
 - **Autenticação**: [JWT](https://jwt.io/) para segurança na autenticação de usuários.
 
