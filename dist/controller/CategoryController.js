@@ -12,17 +12,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ProductService_1 = __importDefault(require("../service/ProductService"));
 const zod_1 = require("zod");
-class ProductsController {
+const CategoryService_1 = __importDefault(require("../service/CategoryService"));
+class CategoryController {
     constructor(dataSource) {
-        this.productService = new ProductService_1.default(dataSource);
+        this.categoryService = new CategoryService_1.default(dataSource);
     }
-    createProduct(request, response) {
+    createCategory(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const createProduct = yield this.productService.createProduct(request.body);
-                return response.status(201).json(createProduct);
+                const createCategory = yield this.categoryService.createCategory(request.body);
+                return response.status(201).json(createCategory);
             }
             catch (error) {
                 if (error instanceof zod_1.z.ZodError) {
@@ -35,10 +35,22 @@ class ProductsController {
             }
         });
     }
-    findAllProducts(request, response) {
+    findAllCategories(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const products = yield this.productService.findAllProducts();
+                const categories = yield this.categoryService.findAllCategories();
+                return response.status(200).json(categories);
+            }
+            catch (error) {
+                console.error(error);
+                throw new Error("Internal server error");
+            }
+        });
+    }
+    findAllProductsByCategories(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const products = yield this.categoryService.findAllProductsByCategories(request.params.name);
                 return response.status(200).json(products);
             }
             catch (error) {
@@ -47,41 +59,5 @@ class ProductsController {
             }
         });
     }
-    findProductById(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const product = yield this.productService.findProductById(Number(request.params.id));
-                return response.status(200).json(product);
-            }
-            catch (error) {
-                console.error(error);
-                throw new Error("Internal server error");
-            }
-        });
-    }
-    updateProduct(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const updatedProduct = yield this.productService.updateProduct(Number(request.params.id), request.body);
-                return response.status(200).json(updatedProduct);
-            }
-            catch (error) {
-                console.error(error);
-                throw new Error("Internal server error");
-            }
-        });
-    }
-    deleteProduct(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                yield this.productService.deleteProduct(Number(request.params.id));
-                return response.status(204).send("Product deleted successfully.");
-            }
-            catch (error) {
-                console.error(error);
-                throw new Error("Internal server error");
-            }
-        });
-    }
 }
-exports.default = ProductsController;
+exports.default = CategoryController;

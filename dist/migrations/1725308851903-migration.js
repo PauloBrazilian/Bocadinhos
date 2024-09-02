@@ -9,9 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Migration1724974973759 = void 0;
+exports.Migration1725308851903 = void 0;
 const typeorm_1 = require("typeorm");
-class Migration1724974973759 {
+class Migration1725308851903 {
     up(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
             yield queryRunner.createTable(new typeorm_1.Table({
@@ -33,6 +33,7 @@ class Migration1724974973759 {
                         name: 'imgUrl',
                         type: 'varchar',
                         length: '255',
+                        isNullable: true,
                     },
                     {
                         name: 'quantity',
@@ -45,17 +46,25 @@ class Migration1724974973759 {
                         scale: 2,
                     },
                     {
-                        name: 'category',
-                        type: 'text',
-                    }
+                        name: 'categoryId',
+                        type: 'int',
+                        isNullable: true,
+                    },
                 ]
             }), true);
+            yield queryRunner.createForeignKey('product', new typeorm_1.TableForeignKey({
+                columnNames: ['categoryId'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'category',
+                onDelete: 'SET NULL',
+            }));
         });
     }
     down(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropForeignKey('product', 'FK_product_category');
             yield queryRunner.dropTable('product');
         });
     }
 }
-exports.Migration1724974973759 = Migration1724974973759;
+exports.Migration1725308851903 = Migration1725308851903;

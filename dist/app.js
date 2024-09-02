@@ -4,7 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const routes_1 = __importDefault(require("./routes"));
+const ProductRoutes_1 = __importDefault(require("./routes/ProductRoutes"));
+const CategoryRoutes_1 = __importDefault(require("./routes/CategoryRoutes"));
 const loggingAndValidationMiddleware_1 = __importDefault(require("./middleware/loggingAndValidationMiddleware"));
 class App {
     constructor() {
@@ -14,7 +15,8 @@ class App {
     routes() {
         this.server.use(express_1.default.json());
         this.server.use(loggingAndValidationMiddleware_1.default);
-        this.server.use('/products', routes_1.default);
+        this.server.use('/products', ProductRoutes_1.default);
+        this.server.use('/categories', CategoryRoutes_1.default);
     }
 }
 exports.default = new App().server;

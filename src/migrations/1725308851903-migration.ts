@@ -1,6 +1,6 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm";
 
-export class Migration1724974973759 implements MigrationInterface {
+export class Migration1725308851903 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(new Table({
@@ -22,6 +22,7 @@ export class Migration1724974973759 implements MigrationInterface {
                     name: 'imgUrl',
                     type: 'varchar',
                     length: '255',
+                    isNullable: true,
                 },
                 {
                     name: 'quantity',
@@ -34,14 +35,23 @@ export class Migration1724974973759 implements MigrationInterface {
                     scale: 2,
                 },
                 {
-                    name: 'category',
-                    type: 'text',
-                }
+                    name: 'categoryId',
+                    type: 'int',
+                    isNullable: true,
+                },
             ]
         }), true);
+
+        await queryRunner.createForeignKey('product', new TableForeignKey({
+            columnNames: ['categoryId'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'category',
+            onDelete: 'SET NULL',
+        }));
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropForeignKey('product', 'FK_product_category');
         await queryRunner.dropTable('product');
     }
 

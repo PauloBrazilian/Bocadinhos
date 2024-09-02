@@ -1,5 +1,6 @@
 import express from 'express';
-import productRoutes from './routes'; 
+import productRoutes from './routes/ProductRoutes';
+import categoryRoutes from './routes/CategoryRoutes';
 import loggingAndValidationMiddleware from './middleware/loggingAndValidationMiddleware';
 
 class App {
@@ -14,6 +15,7 @@ class App {
         this.server.use(express.json());
         this.server.use(loggingAndValidationMiddleware);
         this.server.use('/products', productRoutes);
+        this.server.use('/categories', categoryRoutes);
     }
 }
 

@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const ProductController_1 = __importDefault(require("./controller/ProductController"));
-const DataSource_1 = require("./DataSource");
+const ProductController_1 = __importDefault(require("../controller/ProductController"));
+const DataSource_1 = require("../DataSource");
 const router = (0, express_1.Router)();
 const dataSource = DataSource_1.AppDataSource;
 const productsController = new ProductController_1.default(dataSource);

@@ -9,27 +9,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductRepository = void 0;
+exports.Migration1725308830467 = void 0;
 const typeorm_1 = require("typeorm");
-const Product_1 = require("../entity/Product");
-class ProductRepository extends typeorm_1.Repository {
-    constructor(dataSource) {
-        super(Product_1.Product, dataSource.createEntityManager());
-    }
-    findByName(name) {
+class Migration1725308830467 {
+    up(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.createQueryBuilder('product')
-                .where('product.name = :name', { name })
-                .getMany();
+            yield queryRunner.createTable(new typeorm_1.Table({
+                name: 'category',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        isPrimary: true,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    },
+                    {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '255',
+                    }
+                ]
+            }), true);
         });
     }
-    findByCategory(category) {
+    down(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.createQueryBuilder('product')
-                .leftJoinAndSelect('product.category', 'category')
-                .where('category.name = :category', { category })
-                .getMany();
+            yield queryRunner.dropTable('category');
         });
     }
 }
-exports.ProductRepository = ProductRepository;
+exports.Migration1725308830467 = Migration1725308830467;

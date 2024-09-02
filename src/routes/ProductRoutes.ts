@@ -1,11 +1,10 @@
 import { Router } from 'express';
-import ProductsController from './controller/ProductController';
-import { AppDataSource } from './DataSource';
+import ProductsController from '../controller/ProductController';
+import { AppDataSource } from '../DataSource';
 
 const router = Router();
 const dataSource = AppDataSource;
 const productsController = new ProductsController(dataSource);
-
 
 router.post('/', (req, res) => productsController.createProduct(req, res));
 router.get('/', (req, res) => productsController.findAllProducts(req, res));

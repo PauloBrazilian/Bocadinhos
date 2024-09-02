@@ -39,7 +39,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
         __dirname + '/../dist/entity/**/*.js'
     ],
     migrations: [
-        __dirname + '/../dist/migrations/**/*.ts'
+        __dirname + '/../dist/migrations/**/*.js'
     ],
     synchronize: false,
 });

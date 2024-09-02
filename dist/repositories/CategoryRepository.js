@@ -9,27 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductRepository = void 0;
+exports.CategoryRepository = void 0;
 const typeorm_1 = require("typeorm");
-const Product_1 = require("../entity/Product");
-class ProductRepository extends typeorm_1.Repository {
+const Category_1 = require("../entity/Category");
+class CategoryRepository extends typeorm_1.Repository {
     constructor(dataSource) {
-        super(Product_1.Product, dataSource.createEntityManager());
+        super(Category_1.Category, dataSource.createEntityManager());
     }
     findByName(name) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.createQueryBuilder('product')
-                .where('product.name = :name', { name })
-                .getMany();
-        });
-    }
-    findByCategory(category) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.createQueryBuilder('product')
-                .leftJoinAndSelect('product.category', 'category')
-                .where('category.name = :category', { category })
+            return this.createQueryBuilder('category')
+                .where('category.categoryName = :name', { name })
                 .getMany();
         });
     }
 }
-exports.ProductRepository = ProductRepository;
+exports.CategoryRepository = CategoryRepository;

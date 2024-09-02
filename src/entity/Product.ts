@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Category } from './Category';
 
 @Entity()
 export class Product {
@@ -8,7 +9,7 @@ export class Product {
     @Column({ type: 'varchar', length: 255 })
     name: string;
 
-    @Column({ type: 'varchar', length: 255, nullable: true })
+    @Column({ type: 'varchar', length: 255 })
     imgUrl?: string;
 
     @Column({ type: 'int' })
@@ -17,6 +18,6 @@ export class Product {
     @Column({ type: 'decimal' })
     price: number;
 
-    @Column({ type: 'varchar', array: true, nullable: true })
-    category?: string[];
+    @ManyToOne(() => Category)
+    category?: Category;
 }
