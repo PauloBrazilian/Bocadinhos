@@ -35,71 +35,51 @@ class ProductsController {
             }
         });
     }
-    findProducts(request, response) {
+    findAllProducts(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const findProducts = yield this.productService.findProducts(request.body);
-                return response.status(200).json(findProducts);
+                const products = yield this.productService.findAllProducts();
+                return response.status(200).json(products);
             }
             catch (error) {
-                if (error instanceof zod_1.z.ZodError) {
-                    console.error(error.errors);
-                    throw new Error("Invaled data");
-                }
-                else {
-                    throw new Error("Internal server error");
-                }
+                console.error(error);
+                throw new Error("Internal server error");
             }
         });
     }
     findProductById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const findProductById = yield this.productService.findProductById(Number(request.params.id));
-                return response.status(200).json(findProductById);
+                const product = yield this.productService.findProductById(Number(request.params.id));
+                return response.status(200).json(product);
             }
             catch (error) {
-                if (error instanceof zod_1.z.ZodError) {
-                    console.error(error.errors);
-                    throw new Error("Invaled data");
-                }
-                else {
-                    throw new Error("Internal server error");
-                }
+                console.error(error);
+                throw new Error("Internal server error");
             }
         });
     }
     updateProduct(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const updateProduct = yield this.productService.updateProduct(Number(request.params.id), request.body);
-                return response.status(200).json(updateProduct);
+                const updatedProduct = yield this.productService.updateProduct(Number(request.params.id), request.body);
+                return response.status(200).json(updatedProduct);
             }
             catch (error) {
-                if (error instanceof zod_1.z.ZodError) {
-                    console.error(error.errors);
-                    throw new Error("Invaled data");
-                }
-                else {
-                    throw new Error("Internal server error");
-                }
+                console.error(error);
+                throw new Error("Internal server error");
             }
         });
     }
     deleteProduct(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const updateProduct = yield this.productService.deleteProduct(Number(request.params.id));
-                return response.status(204).json(updateProduct);
+                yield this.productService.deleteProduct(Number(request.params.id));
+                return response.status(204).send();
             }
             catch (error) {
-                if (error instanceof zod_1.z.ZodError) {
-                    console.error(error.errors);
-                    throw new Error("Invaled data");
-                }
-                else {
-                    throw new Error("Internal server error");
-                }
+                console.error(error);
+                throw new Error("Internal server error");
             }
         });
     }

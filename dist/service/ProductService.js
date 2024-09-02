@@ -25,41 +25,37 @@ class ProductService {
             return savedProduct;
         });
     }
-    findProducts(object) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const products = yield this.productRepository.find(object);
-            return products;
-        });
-    }
     findProductById(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const product = yield this.productRepository.findOne({ where: { id } });
-            if (!product) {
-                console.error(`Product with ID ${id} not found.`);
-                throw new Error('Product not found');
-            }
             return product;
+        });
+    }
+    findAllProducts() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const products = yield this.productRepository.find();
+            return products;
         });
     }
     updateProduct(id, object) {
         return __awaiter(this, void 0, void 0, function* () {
-            const validatedData = ProductShema_1.default.parse(object);
-            const productExist = yield this.productRepository.findOne({ where: { id } });
-            if (!productExist) {
+            const product = yield this.productRepository.findOne({ where: { id } });
+            if (!product) {
                 throw new Error('Product not found');
             }
-            const updatedProduct = this.productRepository.merge(productExist, validatedData);
-            yield this.productRepository.save(updatedProduct);
-            return updatedProduct;
+            const updatedProduct = ProductShema_1.default.parse(object);
+            const savedProduct = yield this.productRepository.save(Object.assign(Object.assign({}, product), { category: updatedProduct.category, name: updatedProduct.name, price: updatedProduct.price, quantity: updatedProduct.quantity, imgUrl: updatedProduct.image }));
+            return savedProduct;
         });
     }
     deleteProduct(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const productExist = yield this.productRepository.findOne({ where: { id } });
-            if (!productExist) {
+            const product = yield this.productRepository.findOne({ where: { id } });
+            if (!product) {
                 throw new Error('Product not found');
             }
-            yield this.productRepository.remove(productExist);
+            yield this.productRepository.remove(product);
+            return true;
         });
     }
 }

@@ -25,59 +25,45 @@ export default class ProductsController {
         }  
     }
 
-    async findProducts(request: Request, response: Response): Promise<Response> {
+    async findAllProducts(request: Request, response: Response): Promise<Response> {
         try {
-            const findProducts = await this.productService.findProducts(request.body);
-            return response.status(200).json(findProducts);
+            const products = await this.productService.findAllProducts();
+            return response.status(200).json(products);
         } catch (error) {
-            if (error instanceof z.ZodError) {
-                console.error(error.errors);
-                throw new Error("Invaled data");
-            }else{
-                throw new Error("Internal server error");                
-            }
+            console.error(error);
+            throw new Error("Internal server error");
         }
     }
 
+
     async findProductById(request: Request, response: Response): Promise<Response> {
         try {
-            const findProductById = await this.productService.findProductById(Number(request.params.id));
-            return response.status(200).json(findProductById);
+            const product = await this.productService.findProductById(Number(request.params.id));   
+            return response.status(200).json(product);
         } catch (error) {
-            if (error instanceof z.ZodError) {
-                console.error(error.errors);
-                throw new Error("Invaled data");
-            }else{
-                throw new Error("Internal server error");                
-            }
+            console.error(error);
+            throw new Error("Internal server error");
         }
     }
 
     async updateProduct(request: Request, response: Response): Promise<Response> {
         try {
-            const updateProduct = await this.productService.updateProduct(Number(request.params.id), request.body);
-            return response.status(200).json(updateProduct);
+            const updatedProduct = await this.productService.updateProduct(Number(request.params.id), request.body);
+            return response.status(200).json(updatedProduct);
         } catch (error) {
-            if (error instanceof z.ZodError) {
-                console.error(error.errors);
-                throw new Error("Invaled data");
-            }else{
-                throw new Error("Internal server error");                
-            }
+            console.error(error);
+            throw new Error("Internal server error");
         }
     }
 
     async deleteProduct(request: Request, response: Response): Promise<Response> {
         try {
-            const updateProduct = await this.productService.deleteProduct(Number(request.params.id));
-            return response.status(204).json(updateProduct);
+            await this.productService.deleteProduct(Number(request.params.id));
+            return response.status(204).send("Product deleted successfully.");
         } catch (error) {
-            if (error instanceof z.ZodError) {
-                console.error(error.errors);
-                throw new Error("Invaled data");
-            }else{
-                throw new Error("Internal server error");                
-            }
+            console.error(error);
+            throw new Error("Internal server error");
         }
     }
+
 }
