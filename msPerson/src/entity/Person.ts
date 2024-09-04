@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm"
+import { Roles } from './Roles';
 
 @Entity()
 export class Person {
@@ -6,22 +7,23 @@ export class Person {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
+    @Column({type: 'varchar', length: 255})
     name: string
 
-    @Column()
+    @Column({type: 'varchar', length: 255})
     imgurl: string
 
-    @Column()
+    @Column({type: 'varchar', length: 11})
     cpf: string
 
-    @Column()
+    @Column({type: 'varchar', length: 255})
     email: string
 
-    @Column()
+    @Column({type: 'varchar', length: 255})
     password: string
 
-    @Column()
-    Role: role
+    @ManyToMany(() => Roles)
+    roles: Roles
+
 
 }
