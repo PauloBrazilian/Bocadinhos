@@ -7,7 +7,5 @@ export const EmailShema = z.object({
     replyTo: z.string().email(),
     subject: z.string(),   
     body: z.string(),
-    statusEmail: z.string(), 
-    img: z.string()
     
 });

@@ -1,4 +1,5 @@
 import express from 'express';
+import emailRoutes from './routes/EmailRoutes';
 
 class App {
     public server: express.Application;
@@ -10,6 +11,7 @@ class App {
 
     private routes(): void {
         this.server.use(express.json());
+        this.server.use('/email', emailRoutes);
     }
 }
 
