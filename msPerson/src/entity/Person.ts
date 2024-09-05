@@ -1,29 +1,32 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm"
-import { Roles } from './Roles';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, CreateDateColumn } from "typeorm"
+
 
 @Entity()
 export class Person {
 
     @PrimaryGeneratedColumn()
-    id: number
+    id: number;
 
     @Column({type: 'varchar', length: 255})
-    name: string
+    name: string;
 
     @Column({type: 'varchar', length: 255})
-    imgurl: string
+    imgurl: string;
 
     @Column({type: 'varchar', length: 11})
-    cpf: string
+    cpf: string;
+
+    @Column({type: 'varchar', length: 100, unique: true})
+    email: string;
 
     @Column({type: 'varchar', length: 255})
-    email: string
+    password: string;
 
-    @Column({type: 'varchar', length: 255})
-    password: string
+    @Column( {default: false})
+    isAdmin: boolean;
 
-    @ManyToMany(() => Roles)
-    roles: Roles
+    @CreateDateColumn()
+    dataRegistro: Date;
 
 
 }
