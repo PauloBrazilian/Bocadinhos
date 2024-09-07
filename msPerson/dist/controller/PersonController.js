@@ -1,3 +1,4 @@
+"use strict";
 /* import {Request, Response } from 'express';
 import { PersonService } from '../service/PersonService';
 import { DataSource } from 'typeorm';
@@ -49,4 +50,4 @@ export default class PersonController {
     }
 
 }
- */
+ */ 

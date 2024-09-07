@@ -22,8 +22,8 @@ export class Person {
     @Column({type: 'varchar', length: 255})
     password: string;
 
-    @Column( {default: false})
-    isAdmin: boolean;
+    @Column()
+    accesEnum: acessEnum;
 
     @CreateDateColumn()
     dataRegistro: Date;

@@ -15,7 +15,7 @@ export class PersonRepository extends Repository<Person> {
   }
 
   // Buscar pessoa pelo email
-  public async findByEmail(email: string): Promise<Person | undefined> {
+  public async findByEmail(email: string): Promise<Person | null> {
     return this.createQueryBuilder('person')
       .where('person.email = :email', { email })
       .getOne();

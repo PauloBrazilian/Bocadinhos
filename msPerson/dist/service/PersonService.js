@@ -1,3 +1,4 @@
+"use strict";
 /* import { PersonRepository } from '../repositories/PersonRepository';
 
 import { Person } from '../entity/Person';
@@ -18,7 +19,7 @@ export class PersonService {
     if (savedPerson.isAdmin) {
       const admin = this.adminRepository.create({
         person: savedPerson,
-        access: data.access || 1,  
+        access: data.access || 1,
       });
       await this.adminRepository.save(admin);
     }
@@ -35,4 +36,4 @@ export class PersonService {
     return this.adminRepository.findAllAdmins();
   }
 }
- */
+ */ 

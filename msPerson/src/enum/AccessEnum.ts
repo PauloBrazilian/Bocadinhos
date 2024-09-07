@@ -1,3 +1,3 @@
-export enum {
+enum acessEnum {
 ADMIN, USER
 };
