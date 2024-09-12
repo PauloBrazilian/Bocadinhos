@@ -1,27 +1,22 @@
-/* import { PersonRepository } from '../repositories/PersonRepository';
-
+import { PersonRepository } from '../repositories/PersonRepository';
 import { Person } from '../entity/Person';
+import personSchema from '../Schema/PersonSchema';
+import { DataSource } from 'typeorm';
 
 
 export class PersonService {
   private personRepository: PersonRepository;
+  
 
-  constructor( personRepository: PersonRepository ) {
-    this.personRepository = personRepository;
+  constructor( dataSource: DataSource ) {
+    this.personRepository = new PersonRepository(dataSource);
   }
 
  
-  async createPerson(data: any): Promise<Person> {
-    const person = this.personRepository.create(data);
-    const savedPerson = await this.personRepository.save(person);
+  async createPerson(data: any) {
 
-    if (savedPerson.isAdmin) {
-      const admin = this.adminRepository.create({
-        person: savedPerson,
-        access: data.access || 1,  
-      });
-      await this.adminRepository.save(admin);
-    }
+    const person = personSchema.parse(data);
+    const savedPerson = await this.personRepository.save(person);
 
     return savedPerson;
   }
@@ -35,4 +30,4 @@ export class PersonService {
     return this.adminRepository.findAllAdmins();
   }
 }
- */
+ 
