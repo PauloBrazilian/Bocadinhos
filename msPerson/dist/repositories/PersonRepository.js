@@ -16,7 +16,6 @@ class PersonRepository extends typeorm_1.Repository {
     constructor(dataSource) {
         super(Person_1.Person, dataSource.createEntityManager());
     }
-    // Buscar pessoa pelo nome
     findByName(name) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.createQueryBuilder('person')
@@ -24,7 +23,6 @@ class PersonRepository extends typeorm_1.Repository {
                 .getMany();
         });
     }
-    // Buscar pessoa pelo email
     findByEmail(email) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.createQueryBuilder('person')

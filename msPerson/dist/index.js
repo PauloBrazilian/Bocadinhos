@@ -18,7 +18,7 @@ DataSource_1.AppDataSource.initialize()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
     app_1.default.set('port', process.env.PORT || 8090);
     app_1.default.listen(app_1.default.get('port'), () => {
-        console.info('Server started on http://localhost/:' + app_1.default.get('port'));
+        console.info('Server started on http://localhost:' + app_1.default.get('port'));
     });
 }))
     .catch(error => console.log('Error during Data Source initialization:', error));

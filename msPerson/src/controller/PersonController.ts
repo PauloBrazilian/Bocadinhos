@@ -1,8 +1,8 @@
-/* import {Request, Response } from 'express';
-import { PersonService } from '../service/PersonService';
+import {Request, Response } from 'express';
+import { PersonService } from '../service/personService';
 import { DataSource } from 'typeorm';
 import { z } from 'zod';
-import { error } from 'console';
+
 
 
 export default class PersonController {
@@ -16,7 +16,7 @@ export default class PersonController {
         try{
             const createPerson = await this.personService.createPerson(request.body);
             return response.status(201).json(createPerson);
-        }catch{
+        }catch ( error ){
             if (error instanceof z.ZodError) {
                 console.error(error.errors);
                 throw new Error("Invalid data");
@@ -26,27 +26,25 @@ export default class PersonController {
         }
     }
     
-    async getPersonByEmail(request: Request, response: Response): Promise<Response> {
+    async findPersonByEmail(request: Request, response: Response): Promise<Response> {
         try{
-            const { email } = request.params;
-            const person = await this.personService.getPersonByEmail(email);
-            if (person) {
-                return response.status(200).json(person);
-            }
-            return response.status(404).json({ message: 'Pessoa não encontrada' });
+            const person = await this.personService.findPersonByEmail(request.params.email);
+            return response.status(200).json(person);
+            
         }catch (error) {
-            return response.status(500).json({ message: 'Erro ao buscar pessoa', error});
+            console.error(error);
+            throw new Error("Internal server error");
         }
     }
 
-    async getAllAdmins(request: Request, response: Response): Promise<Response> {
+    async findAllPersons(request: Request, response: Response): Promise<Response> {
         try {
-            const admins = await this.personService.getAllAdmins();
+            const admins = await this.personService.findAllPersons();
             return response.status(200).json(admins);
         } catch (error) {
-            return response.status(500).json({ message: 'Erro ao buscar administradores', error })
+            console.error(error);
+            throw new Error("Internal server error");
         }
     }
 
 }
- */

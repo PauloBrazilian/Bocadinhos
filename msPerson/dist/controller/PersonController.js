@@ -1,53 +1,60 @@
 "use strict";
-/* import {Request, Response } from 'express';
-import { PersonService } from '../service/PersonService';
-import { DataSource } from 'typeorm';
-import { z } from 'zod';
-import { error } from 'console';
-
-
-export default class PersonController {
-    private personService: PersonService;
-
-    constructor(dataSource: DataSource) {
-        this.personService = new PersonService(dataSource);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const personService_1 = require("../service/personService");
+const zod_1 = require("zod");
+class PersonController {
+    constructor(dataSource) {
+        this.personService = new personService_1.PersonService(dataSource);
     }
-
-    async createPerson(request: Request, response: Response): Promise<Response> {
-        try{
-            const createPerson = await this.personService.createPerson(request.body);
-            return response.status(201).json(createPerson);
-        }catch{
-            if (error instanceof z.ZodError) {
-                console.error(error.errors);
-                throw new Error("Invalid data");
-            }else{
-                throw new Error("Internal server error")
+    createPerson(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const createPerson = yield this.personService.createPerson(request.body);
+                return response.status(201).json(createPerson);
             }
-        }
+            catch (error) {
+                if (error instanceof zod_1.z.ZodError) {
+                    console.error(error.errors);
+                    throw new Error("Invalid data");
+                }
+                else {
+                    throw new Error("Internal server error");
+                }
+            }
+        });
     }
-    
-    async getPersonByEmail(request: Request, response: Response): Promise<Response> {
-        try{
-            const { email } = request.params;
-            const person = await this.personService.getPersonByEmail(email);
-            if (person) {
+    findPersonByEmail(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const person = yield this.personService.findPersonByEmail(request.params.email);
                 return response.status(200).json(person);
             }
-            return response.status(404).json({ message: 'Pessoa não encontrada' });
-        }catch (error) {
-            return response.status(500).json({ message: 'Erro ao buscar pessoa', error});
-        }
+            catch (error) {
+                console.error(error);
+                throw new Error("Internal server error");
+            }
+        });
     }
-
-    async getAllAdmins(request: Request, response: Response): Promise<Response> {
-        try {
-            const admins = await this.personService.getAllAdmins();
-            return response.status(200).json(admins);
-        } catch (error) {
-            return response.status(500).json({ message: 'Erro ao buscar administradores', error })
-        }
+    findAllPersons(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const admins = yield this.personService.findAllPersons();
+                return response.status(200).json(admins);
+            }
+            catch (error) {
+                console.error(error);
+                throw new Error("Internal server error");
+            }
+        });
     }
-
 }
- */ 
+exports.default = PersonController;

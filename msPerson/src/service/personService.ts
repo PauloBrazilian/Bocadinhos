@@ -16,18 +16,28 @@ export class PersonService {
   async createPerson(data: any) {
 
     const person = personSchema.parse(data);
-    const savedPerson = await this.personRepository.save(person);
+
+    const savedPerson = await this.personRepository.save({
+      name: person.name,
+      imgurl: person.imgurl,
+      cpf: person.cpf,
+      email: person.email,
+      password: person.password,
+      acessEnum: person.acessEnum,
+      dataRegistro: person.dataRegistro,
+    });
 
     return savedPerson;
   }
 
-  async getPersonByEmail(email: string): Promise<Person | undefined> {
-    return this.personRepository.findByEmail(email);
+  async findPersonByEmail(email: string) {
+    return await this.personRepository.findByEmail(email);
   }
 
 
-  async getAllAdmins(): Promise<Admin[]> {
-    return this.adminRepository.findAllAdmins();
+  async findAllPersons() {
+    const person = await this.personRepository.find()
+    return person;
   }
 }
  

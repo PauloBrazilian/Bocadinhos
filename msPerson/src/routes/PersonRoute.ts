@@ -8,8 +8,8 @@ const dataSource = AppDataSource;
 const personController = new PersonController(dataSource);
 
 router.post('/',(req, res) => personController.createPerson(req, res));
-router.get('/',(req, res) => personController.getAllAdmins(req, res));
-router.get('/',(req, res) => personController.getPersonByEmail(req, res));
+router.get('/',(req, res) => personController.findAllPersons(req, res));
+router.get('/',(req, res) => personController.findPersonByEmail(req, res));
 
 
 export default router

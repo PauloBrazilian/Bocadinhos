@@ -36,10 +36,8 @@ exports.AppDataSource = new typeorm_1.DataSource({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     synchronize: false,
-    logging: false,
-    entities: [__dirname + '/../dist/entity/*/.js'],
-    migrations: [__dirname + '/../dist/migrations/*/.js'],
-    subscribers: [],
+    entities: [__dirname + '/../dist/entity/**/*.js'],
+    migrations: [__dirname + '/../dist/migrations/**/*.js'],
 });
 exports.AppDataSource.initialize()
     .then(() => {
