@@ -15,12 +15,11 @@ export default class ProductsController {
         try {
             const createProduct = await this.productService.createProduct(request.body);
             return response.status(201).json(createProduct);
-        } catch (error) {
+        } catch (error: any) {
             if (error instanceof z.ZodError) {
-                console.error(error.errors);
-                throw new Error("Invaled data");
+                return response.status(400).json({ message: error.message})  
             }else{
-                throw new Error("Internal server error");                
+                return response.status(500).json({ message: error.message})              
             }
         }  
     }
@@ -29,9 +28,8 @@ export default class ProductsController {
         try {
             const products = await this.productService.findAllProducts();
             return response.status(200).json(products);
-        } catch (error) {
-            console.error(error);
-            throw new Error("Internal server error");
+        } catch (error: any) {
+            return response.status(500).json({ message: error.message})   
         }
     }
 
@@ -40,9 +38,8 @@ export default class ProductsController {
         try {
             const product = await this.productService.findProductById(Number(request.params.id));   
             return response.status(200).json(product);
-        } catch (error) {
-            console.error(error);
-            throw new Error("Internal server error");
+        } catch (error: any) {
+            return response.status(500).json({ message: error.message})   
         }
     }
 
@@ -50,19 +47,21 @@ export default class ProductsController {
         try {
             const updatedProduct = await this.productService.updateProduct(Number(request.params.id), request.body);
             return response.status(200).json(updatedProduct);
-        } catch (error) {
-            console.error(error);
-            throw new Error("Internal server error");
+        } catch (error: any) {
+            if (error instanceof z.ZodError) {
+                return response.status(400).json({ message: error.message})  
+            }else{
+                return response.status(500).json({ message: error.message})              
+            }
         }
     }
 
     async deleteProduct(request: Request, response: Response): Promise<Response> {
         try {
             await this.productService.deleteProduct(Number(request.params.id));
-            return response.status(204).send("Product deleted successfully.");
-        } catch (error) {
-            console.error(error);
-            throw new Error("Internal server error");
+            return response.status(200).send("Product deleted successfully.");
+        } catch (error: any) {
+            return response.status(500).json({ message: error.message}) 
         }
     }
 

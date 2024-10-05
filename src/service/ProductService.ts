@@ -1,5 +1,4 @@
 import { DataSource } from 'typeorm';
-import productShema from '../schema/ProductShema';
 import { CategoryRepository } from '../repositories/CategoryRepository';
 import { ProductRepository } from '../repositories/ProductRepository';
 
@@ -12,15 +11,14 @@ class ProductService {
     this.categoryRepository = new CategoryRepository(dataSource);
   }
 
-  async createProduct(object: any) {
-    const product = productShema.parse(object);
-    const category = await this.getCategory(product.category[0]);
+  async createProduct(object: any) {    
+    const category = await this.getCategory(object.category[0]);
 
     const savedProduct = await this.productRepository.save({
-      name: product.name,
-      price: product.price,
-      quantity: product.quantity,
-      imgUrl: product.image,
+      name: object.name,
+      price: object.price,
+      quantity: object.quantity,
+      imgUrl: object.image,
       category: category,
     });
 
@@ -41,15 +39,14 @@ class ProductService {
     const product = await this.productRepository.findOne({ where: { id } });
     if (!product) {
       throw new Error('Product not found');
-    }
-    const updatedProduct = productShema.parse(object);
+    }    
     const savedProduct = await this.productRepository.save({
       ...product,
-      name: updatedProduct.name,
-      price: updatedProduct.price,
-      quantity: updatedProduct.quantity,
-      imgUrl: updatedProduct.image,
-      category: await this.getCategory(updatedProduct.category[0]),
+      name: object.name,
+      price: object.price,
+      quantity: object.quantity,
+      imgUrl: object.image,
+      category: await this.getCategory(object.category[0]),
     });
     return savedProduct;
   }

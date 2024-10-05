@@ -15,12 +15,11 @@ export default class CategoryController {
         try {
             const createCategory = await this.categoryService.createCategory(request.body);
             return response.status(201).json(createCategory);
-        } catch (error) {
+        } catch (error: any) {
             if (error instanceof z.ZodError) {
-                console.error(error.errors);
-                throw new Error("Invaled data");
+                return response.status(400).json({ message: error.errors });
             } else {
-                throw new Error("Internal server error");
+                return response.status(500).json({ message: error.message });
             }
         }
     }
@@ -29,9 +28,8 @@ export default class CategoryController {
         try {
             const categories = await this.categoryService.findAllCategories();
             return response.status(200).json(categories);
-        } catch (error) {
-            console.error(error);
-            throw new Error("Internal server error");
+        } catch (error: any) {
+            return response.status(500).json({ message: error.message });
         }
     }
 
@@ -39,9 +37,8 @@ export default class CategoryController {
         try {
             const products = await this.categoryService.findAllProductsByCategories(request.params.name);
             return response.status(200).json(products);
-        } catch (error) {
-            console.error(error);
-            throw new Error("Internal server error");
+        } catch (error: any) {
+            return response.status(500).json({ message: error.message });
         }
     }
 }

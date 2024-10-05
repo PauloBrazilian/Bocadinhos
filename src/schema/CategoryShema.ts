@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-const categoryShema = z.object({
-    name: z.string().min(3).max(255),
+const categorySchema = z.object({
+    name: z.string().min(3, { message: "Category name must be at least 3 characters long" }).max(255),
 });
 
-export default categoryShema;
+export default categorySchema;

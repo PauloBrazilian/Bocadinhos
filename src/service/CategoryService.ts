@@ -6,16 +6,15 @@ import { ProductRepository } from '../repositories/ProductRepository';
 class CategoryService {
     private productRepository: ProductRepository;
     private categoryRepository: CategoryRepository;
-  
+
     constructor(dataSource: DataSource) {
       this.productRepository = new ProductRepository(dataSource);
       this.categoryRepository = new CategoryRepository(dataSource);
     }
 
   async createCategory(object: any) {
-    const category = categoryShema.parse(object);
     const savedCategory = await this.categoryRepository.save({
-        categoryName: category.name
+        categoryName: object.name
     });
     return savedCategory;
   }
