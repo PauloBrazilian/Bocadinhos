@@ -1,5 +1,4 @@
 import { PersonRepository } from '../repositories/PersonRepository';
-import { Person } from '../entity/Person';
 import personSchema from '../Schema/PersonSchema';
 import { DataSource } from 'typeorm';
 

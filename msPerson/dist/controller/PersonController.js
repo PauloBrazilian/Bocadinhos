@@ -22,6 +22,7 @@ class PersonController {
                 return response.status(201).json(createPerson);
             }
             catch (error) {
+                console.error(error);
                 if (error instanceof zod_1.z.ZodError) {
                     console.error(error.errors);
                     throw new Error("Invalid data");

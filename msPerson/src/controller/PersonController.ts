@@ -17,6 +17,7 @@ export default class PersonController {
             const createPerson = await this.personService.createPerson(request.body);
             return response.status(201).json(createPerson);
         }catch ( error ){
+            console.error(error)
             if (error instanceof z.ZodError) {
                 console.error(error.errors);
                 throw new Error("Invalid data");

@@ -17,42 +17,35 @@ export class Migration1725676688895 implements MigrationInterface {
                     {
                         name: "name",
                         type: "varchar",
-                        length: "255",
                     },
                     {
                         name: "imgurl",
                         type: "varchar",
-                        length: "255",
                     },
                     {
                         name: "cpf",
                         type: "varchar",
-                        length: "11",
                     },
                     {
                         name: "email",
                         type: "varchar",
-                        length: "100",
-                        isUnique: true,
                     },
                     {
                         name: "password",
                         type: "varchar",
-                        length: "255",
                     },
                     {
                         name: "accesEnum",
-                        type: "enum",
-                        enum: ["ADMIN", "USER"], // Certifique-se de que `acessEnum` tem esses valores, ou ajuste conforme sua enumeração
+                        type: "int",
+                        default: 0,
                     },
                     {
                         name: "dataRegistro",
                         type: "timestamp",
-                        default: "CURRENT_TIMESTAMP",
+                        default: "now()",
                     },
                 ],
-            }),
-            true
+            })
         );
     }
 
@@ -60,3 +53,4 @@ export class Migration1725676688895 implements MigrationInterface {
         await queryRunner.dropTable("person");
     }
 }
+
