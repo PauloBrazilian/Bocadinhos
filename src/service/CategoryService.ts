@@ -1,20 +1,19 @@
 import { DataSource } from 'typeorm';
 import { CategoryRepository } from '../repositories/CategoryRepository';
-import categoryShema from '../schema/CategoryShema';
 import { ProductRepository } from '../repositories/ProductRepository';
 
 class CategoryService {
-    private productRepository: ProductRepository;
-    private categoryRepository: CategoryRepository;
+  private productRepository: ProductRepository;
+  private categoryRepository: CategoryRepository;
 
-    constructor(dataSource: DataSource) {
-      this.productRepository = new ProductRepository(dataSource);
-      this.categoryRepository = new CategoryRepository(dataSource);
-    }
+  constructor(dataSource: DataSource) {
+    this.productRepository = new ProductRepository(dataSource);
+    this.categoryRepository = new CategoryRepository(dataSource);
+  }
 
   async createCategory(object: any) {
     const savedCategory = await this.categoryRepository.save({
-        categoryName: object.name
+      categoryName: object.name,
     });
     return savedCategory;
   }
@@ -28,7 +27,6 @@ class CategoryService {
     const products = await this.productRepository.findByCategory(name);
     return products;
   }
-
 }
 
 export default CategoryService;
