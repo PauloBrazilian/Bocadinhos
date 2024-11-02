@@ -11,4 +11,5 @@ export class CategoryRepository extends Repository<Category> {
       .where('category.categoryName = :name', { name })
       .getMany();
   }
+  
 }

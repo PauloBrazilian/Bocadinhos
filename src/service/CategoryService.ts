@@ -19,12 +19,12 @@ class CategoryService {
   }
 
   async findAllCategories() {
-    const categories = await this.categoryRepository.find();
+    const categories = await this.categoryRepository.find();        
     return categories;
   }
 
   async findAllProductsByCategories(name: string) {
-    const products = await this.productRepository.findByCategory(name);
+    const products = await this.productRepository.findByCategory(name);  
     return products;
   }
 }

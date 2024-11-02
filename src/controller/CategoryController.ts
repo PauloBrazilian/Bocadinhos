@@ -11,22 +11,22 @@ export default class CategoryController {
         this.categoryService = new CategoryService(dataSource);
     }
 
-    async createCategory(request: Request, response: Response): Promise<Response> {
-        try {
-            const createCategory = await this.categoryService.createCategory(request.body);
-            return response.status(201).json(createCategory);
-        } catch (error: any) {
-            if (error instanceof z.ZodError) {
-                return response.status(400).json({ message: error.errors });
-            } else {
-                return response.status(500).json({ message: error.message });
+        async createCategory(request: Request, response: Response): Promise<Response> {              
+            try {
+                const createCategory = await this.categoryService.createCategory(request.body);
+                return response.status(201).json(createCategory);
+            } catch (error: any) {
+                if (error instanceof z.ZodError) {
+                    return response.status(400).json({ message: error.errors });
+                } else {
+                    return response.status(500).json({ message: error.message });
+                }
             }
         }
-    }
 
-    async findAllCategories(request: Request, response: Response): Promise<Response> {
+    async findAllCategories(request: Request, response: Response): Promise<Response> {                  
         try {
-            const categories = await this.categoryService.findAllCategories();
+            const categories = await this.categoryService.findAllCategories();            
             return response.status(200).json(categories);
         } catch (error: any) {
             return response.status(500).json({ message: error.message });

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import categorySchema from "../schema/CategoryShema";
+import categorySchema from "../Schema/CategoryShema";
 
 function CategoryValidator(req: Request, res: Response, next: NextFunction) {
   try {

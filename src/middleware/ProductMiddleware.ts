@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import productShema from '../schema/ProductShema';
+import productShema from "../Schema/ProductShema";
 
 function productValidate(req: Request, res: Response, next: NextFunction) {
     try {
