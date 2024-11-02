@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from "express";
-import categorySchema from "../Schema/CategoryShema";
+import { Request, Response, NextFunction } from 'express';
+import categorySchema from '../schema/CategoryShema';
 
 function CategoryValidator(req: Request, res: Response, next: NextFunction) {
   try {
@@ -14,11 +14,11 @@ function CategoryValidator(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-function categoryName(req: Request, res: Response, next: NextFunction) {  
+function categoryName(req: Request, res: Response, next: NextFunction) {
   if (!req.params.name) {
-    return res.status(400).json({ error: "Category name is required" });
+    return res.status(400).json({ error: 'Category name is required' });
   } else if (req.params.name.length < 3) {
-    return res.status(400).json({ error: "Category name must be at least 3 characters long" });
+    return res.status(400).json({ error: 'Category name must be at least 3 characters long' });
   } else {
     next();
   }
