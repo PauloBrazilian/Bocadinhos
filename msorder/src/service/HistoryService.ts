@@ -12,10 +12,10 @@ class HistoryService {
     }
 
     async createHistory(object: any) {       
-        const getCart = await this.cartRepository.getCart(object.cart[0]);
+        const getBuyCart = await this.cartRepository.getCart(object.cart[0]);
         
         const history = await this.historyRepository.save({
-            cart: getCart,
+            buyCart: getBuyCart,
             creationDate: object.creationDate
         });
         return history;

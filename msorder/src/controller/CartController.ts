@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import CartService from "../service/CartService";
 import { z } from "zod";
-import { json } from "stream/consumers";
 
 export default class CartController {
     
@@ -11,7 +10,7 @@ export default class CartController {
         this.cartService = new CartService(); 
     }
 
-    async createCart(req: Request, res: Response): Promise<Response> {
+    async createCart(req: Request, res: Response): Promise<Response> {        
         try {
             const cart = await this.cartService.createCart(req.body);
             return res.status(201).json(cart); 

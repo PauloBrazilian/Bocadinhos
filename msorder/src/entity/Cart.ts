@@ -4,12 +4,15 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 export class Cart {
 
     @PrimaryGeneratedColumn()
-    id: number
+    cartId: number
 
-    @Column()
-    productId: number
+    @Column("int", { array: true })
+    productIds: number[]
 
     @Column()
     personId: number    
+
+    @Column()
+    total: number
 
 }

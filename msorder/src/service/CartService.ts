@@ -1,18 +1,24 @@
 import CartRepository from "../repositories/implementations/CartRepository";
+import ProductService from "./ProductService";
 
 class CartService {
     
     private cartRepository: CartRepository;
+    private productService: ProductService;
 
     constructor() {
         this.cartRepository = new CartRepository();
+        this.productService = new ProductService();
     }
 
     async createCart(object: any) {
+        const searchProduct = await this.productService.findProductById(object.productId);
+        
         const cart = await this.cartRepository.save({
-            personId: object.personId,
-            productId: object.productId
+            personId: searchProduct.id,
+            productIds: object.productId
         });
+        
         return cart;
     }
 
@@ -33,10 +39,10 @@ class CartService {
             throw new Error(`Cart with ID ${id} not found`);
         }
 
-        const { personId, productId } = object;
+        const { personId, productIds} = object;
     
         searchCart.personId = personId;    
-        searchCart.productId = productId;
+        searchCart.productIds = productIds;
             
         const savedCart = await this.cartRepository.update(searchCart);
         return savedCart;        

@@ -1,16 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
-import { Cart } from "./Cart" 
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
+import { BuyCart } from './BuyCart';
 
 @Entity()
 export class History {
+  
+  @PrimaryGeneratedColumn()
+  historyId: number;
 
-    @PrimaryGeneratedColumn()
-    id: number
+  @OneToOne(() => BuyCart)
+  @JoinColumn({ referencedColumnName: 'buyCartId' })  
+  buyCart?: BuyCart;
 
-    @ManyToOne(() => Cart)
-    cart?: Cart;
+  @Column()
+  creationDate: Date;
 
-    @Column()
-    creationDate: Date
-
+  @Column()
+  status?: string;
 }
