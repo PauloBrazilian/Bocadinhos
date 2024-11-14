@@ -22,3 +22,4 @@ DataSource_1.AppDataSource.initialize()
     });
 }))
     .catch(error => console.log('Error during Data Source initialization:', error));
+//# sourceMappingURL=index.js.map

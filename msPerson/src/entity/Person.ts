@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, CreateDateColumn } from "typeorm"
+import { AcessEnum } from "../enum/AcessEnum"
 
 
 @Entity()
@@ -13,7 +14,7 @@ export class Person {
     @Column({type: 'varchar', length: 255})
     imgurl: string;
 
-    @Column({type: 'varchar', length: 11})
+    @Column({type: 'varchar', length: 11, unique: true})
     cpf: string;
 
     @Column({type: 'varchar', length: 100, unique: true})
@@ -22,8 +23,8 @@ export class Person {
     @Column({type: 'varchar', length: 255})
     password: string;
 
-    @Column()
-    accesEnum: acessEnum;
+    @Column({type: "enum", enum: AcessEnum, default: AcessEnum.USER, })
+    acessEnum: AcessEnum;
 
     @CreateDateColumn()
     dataRegistro: Date;

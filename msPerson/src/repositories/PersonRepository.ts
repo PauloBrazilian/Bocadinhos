@@ -5,6 +5,7 @@ export class PersonRepository extends Repository<Person> {
 
   constructor(dataSource: DataSource) {
     super(Person, dataSource.createEntityManager());
+  
   }
 
 
@@ -20,6 +21,13 @@ export class PersonRepository extends Repository<Person> {
       .where('person.email = :email', { email })
       .getOne();
   }
+
+
+async findByCpf(cpf: string): Promise<Person | null> {
+    return this.createQueryBuilder('person')
+    .where('person.cpf = :cpf', {cpf})
+    .getOne();
+}
 
 
 

@@ -1,3 +1,0 @@
-enum acessEnum {
-ADMIN, USER
-};

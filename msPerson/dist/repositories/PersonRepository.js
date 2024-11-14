@@ -30,5 +30,13 @@ class PersonRepository extends typeorm_1.Repository {
                 .getOne();
         });
     }
+    findByCpf(cpf) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.createQueryBuilder('person')
+                .where('person.cpf = :cpf', { cpf })
+                .getOne();
+        });
+    }
 }
 exports.PersonRepository = PersonRepository;
+//# sourceMappingURL=PersonRepository.js.map

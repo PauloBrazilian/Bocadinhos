@@ -1,6 +1,8 @@
+import { Person } from '../entity/Person';
+import { AcessEnum } from '../enum/AcessEnum';
 import { PersonRepository } from '../repositories/PersonRepository';
 import personSchema from '../Schema/PersonSchema';
-import { DataSource } from 'typeorm';
+import { DataSource, DeepPartial } from 'typeorm';
 
 
 export class PersonService {
@@ -22,7 +24,7 @@ export class PersonService {
       cpf: person.cpf,
       email: person.email,
       password: person.password,
-      acessEnum: person.acessEnum,
+      acessEnum: person.acessEnum as unknown as AcessEnum,
       dataRegistro: person.dataRegistro,
     });
 

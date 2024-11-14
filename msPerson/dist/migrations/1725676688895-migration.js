@@ -39,15 +39,17 @@ class Migration1725676688895 {
                     {
                         name: "email",
                         type: "varchar",
+                        isUnique: true,
                     },
                     {
                         name: "password",
                         type: "varchar",
                     },
                     {
-                        name: "accesEnum",
-                        type: "int",
-                        default: 0,
+                        name: "acessEnum",
+                        type: "enum",
+                        enum: ["USER", "ADMIN"],
+                        default: "'USER'"
                     },
                     {
                         name: "dataRegistro",
@@ -65,3 +67,4 @@ class Migration1725676688895 {
     }
 }
 exports.Migration1725676688895 = Migration1725676688895;
+//# sourceMappingURL=1725676688895-migration.js.map

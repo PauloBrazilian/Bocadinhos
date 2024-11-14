@@ -16,3 +16,4 @@ class App {
     }
 }
 exports.default = new App().server;
+//# sourceMappingURL=app.js.map

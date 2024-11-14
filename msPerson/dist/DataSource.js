@@ -44,3 +44,4 @@ exports.AppDataSource.initialize()
     // here you can start to work with your database
 })
     .catch((error) => console.log(error));
+//# sourceMappingURL=DataSource.js.map

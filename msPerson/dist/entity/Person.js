@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Person = void 0;
 const typeorm_1 = require("typeorm");
+const AcessEnum_1 = require("../enum/AcessEnum");
 let Person = class Person {
 };
 exports.Person = Person;
@@ -27,7 +28,7 @@ __decorate([
     __metadata("design:type", String)
 ], Person.prototype, "imgurl", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar', length: 11 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 11, unique: true }),
     __metadata("design:type", String)
 ], Person.prototype, "cpf", void 0);
 __decorate([
@@ -39,9 +40,9 @@ __decorate([
     __metadata("design:type", String)
 ], Person.prototype, "password", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ type: "enum", enum: AcessEnum_1.AcessEnum, default: AcessEnum_1.AcessEnum.USER, }),
     __metadata("design:type", Number)
-], Person.prototype, "accesEnum", void 0);
+], Person.prototype, "acessEnum", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
@@ -49,3 +50,4 @@ __decorate([
 exports.Person = Person = __decorate([
     (0, typeorm_1.Entity)()
 ], Person);
+//# sourceMappingURL=Person.js.map
