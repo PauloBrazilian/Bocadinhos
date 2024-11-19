@@ -11,6 +11,9 @@ export class Cart {
 
     @Column()
     personId: number    
+    
+    @Column({ type: 'int' })
+    quantity: number;
 
     @Column()
     total: number
