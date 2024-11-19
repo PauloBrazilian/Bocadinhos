@@ -1,13 +1,22 @@
 import { Repository } from "typeorm/repository/Repository";
 import { BuyCart } from "../../entity/BuyCart";
-import IBuyCartRepository from "../IBuyCartRepository";
 import { AppDataSource } from "../../DataSource";
+import { IBuyCartRepository } from "../IBuyCartRepository";
 
 export default class BuyCartRepository implements IBuyCartRepository {
+   
     private ormRepository: Repository<BuyCart>;
 
     constructor() {
         this.ormRepository = AppDataSource.getRepository(BuyCart);
+    }
+
+    async getBuyCart(buyCartId: number): Promise<BuyCart> {
+        const buyCart = await this.ormRepository.findOneBy({ buyCartId: buyCartId });
+        if (!buyCart) {
+            throw new Error("BuyCart not found");
+        }
+        return buyCart;
     }
 
     async create(buyCart: BuyCart): Promise<BuyCart> {
