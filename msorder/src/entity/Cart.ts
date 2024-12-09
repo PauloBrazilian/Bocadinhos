@@ -12,10 +12,10 @@ export class Cart {
     @Column()
     personId: number    
     
-    @Column({ type: 'int' })
+    @Column({ type: 'decimal' })
     quantity: number;
 
-    @Column()
+    @Column({ type: 'decimal' })
     total: number
 
 }
