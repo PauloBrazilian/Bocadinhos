@@ -11,6 +11,12 @@ export default class BuyCartRepository implements IBuyCartRepository {
         this.ormRepository = AppDataSource.getRepository(BuyCart);
     }
 
+    async save(buyCart: BuyCart): Promise<BuyCart> {
+        const newBuyCart = this.ormRepository.create(buyCart);
+        await this.ormRepository.save(newBuyCart);
+        return newBuyCart;
+    }
+
     async getBuyCart(buyCartId: number): Promise<BuyCart> {
         const buyCart = await this.ormRepository.findOneBy({ buyCartId: buyCartId });
         if (!buyCart) {
@@ -19,10 +25,9 @@ export default class BuyCartRepository implements IBuyCartRepository {
         return buyCart;
     }
 
-    async create(buyCart: BuyCart): Promise<BuyCart> {
-        const newBuyCart = this.ormRepository.create(buyCart);
-        await this.ormRepository.save(newBuyCart);
-        return newBuyCart;
+    async findAll(): Promise<BuyCart[]>{
+        const buycart = await this.ormRepository.find();
+        return buycart;
     }
 
     async findById(buyCartId: number): Promise<BuyCart> {
@@ -38,8 +43,8 @@ export default class BuyCartRepository implements IBuyCartRepository {
         return buyCart;
     }
 
-    async delete(buyCartId: number): Promise<void> {
-        await this.ormRepository.delete(buyCartId);
+    async delete(buyCart: BuyCart): Promise<void> {
+        await this.ormRepository.delete(buyCart);
     }
     
 } 
