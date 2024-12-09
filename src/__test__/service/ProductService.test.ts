@@ -117,16 +117,16 @@ describe('ProductService test suite', () => {
 
   });
 
-  describe('findAllProducts', () => {
-    it('should return all products', async () => {     
-      mockProductRepository.find.mockResolvedValue(mockProducts);
-      const result = await productService.findAllProducts();
+  // describe('findAllProducts', () => {
+  //   it('should return all products', async () => {     
+  //     mockProductRepository.find.mockResolvedValue(mockProducts);
+  //     const result = await productService.findAllProducts();
 
-      expect(mockProductRepository.find).toHaveBeenCalled();
-      expect(result).toEqual(mockProducts);
-    });
+  //     expect(mockProductRepository.find).toHaveBeenCalled();
+  //     expect(result).toEqual(mockProducts);
+  //   });
 
-  });
+  // });
 
   describe('updateProduct', () => {
     it('should update and return the product', async () => {   

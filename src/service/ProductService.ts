@@ -1,4 +1,4 @@
-import { DataSource } from 'typeorm';
+import { DataSource, In } from 'typeorm';
 import { CategoryRepository } from '../repositories/CategoryRepository';
 import { ProductRepository } from '../repositories/ProductRepository';
 
@@ -11,7 +11,7 @@ class ProductService {
     this.categoryRepository = new CategoryRepository(dataSource);
   }
 
-  async createProduct(object: any) {    
+  async createProduct(object: any) {
     const category = await this.getCategory(object.category[0]);
 
     const savedProduct = await this.productRepository.save({
@@ -25,21 +25,36 @@ class ProductService {
     return savedProduct;
   }
 
-  async findProductById(id: number) {
-    const product = await this.productRepository.findOne({ where: { id } });
-    return product;
+  async findAllProducts(query: any) {
+    try {    
+      const ids = query.ids ? String(query.ids).split(',').map(Number): null;
+
+      let products;
+
+      if (ids && ids.length > 0) {
+        products = await this.productRepository.find({
+          where: { id: In(ids) },
+        });
+      } else {        
+        products = await this.productRepository.find();
+      }
+
+      return products;
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+
   }
 
-  async findAllProducts() {
-    const products = await this.productRepository.find();
-    return products;
+  async findProductById(id: number) {
+    return await this.productRepository.findOne({ where: { id } });
   }
 
   async updateProduct(id: number, object: any) {
     const product = await this.productRepository.findOne({ where: { id } });
     if (!product) {
       throw new Error('Product not found');
-    }    
+    }
     const savedProduct = await this.productRepository.save({
       ...product,
       name: object.name,
