@@ -1,6 +1,6 @@
 import { Category } from "../useCases/ICategoryDto";
 
-export interface IProductsDto {    
+export interface IProductDto {    
     id: number;    
     name: string;    
     imgUrl?: string;    
