@@ -26,13 +26,12 @@ export default class ProductsController {
 
     async findAllProducts(request: Request, response: Response): Promise<Response> {
         try {
-            const products = await this.productService.findAllProducts();
+            const products = await this.productService.findAllProducts(request.query);
             return response.status(200).json(products);
         } catch (error: any) {
-            return response.status(500).json({ message: error.message})   
+            return response.status(500).json({ message: error.message });
         }
     }
-
 
     async findProductById(request: Request, response: Response): Promise<Response> {
         try {
