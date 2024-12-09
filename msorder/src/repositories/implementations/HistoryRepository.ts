@@ -20,10 +20,10 @@ export default class HistoryRepository implements IHistoryRepository{
         return await this.ormRepository.find();
     }
 
-    async findById(id: number): Promise<History> {
-        const history = await this.ormRepository.findOne({ where: { id } });
+    async findById(historyId: number): Promise<History> {
+        const history = await this.ormRepository.findOne({ where: { historyId } });
         if (!history) {
-            throw new Error(`Cart with id ${id} not found`);
+            throw new Error(`Cart with id ${historyId} not found`);
         }
         return history;
     }
