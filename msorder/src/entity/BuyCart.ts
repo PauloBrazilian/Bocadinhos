@@ -9,13 +9,14 @@ export class BuyCart {
     @PrimaryGeneratedColumn()
     buyCartId: number
 
-    @OneToOne(() => Cart)
-    @JoinColumn({ referencedColumnName: "cartId" })  
-    cart: Cart
-
     @Column({type: "enum", enum: PaymentEnum })
     payment: PaymentEnum 
     
     @Column({type: "enum", enum: StatusEnum})
     status: StatusEnum 
+
+    @OneToOne(() => Cart)
+    @JoinColumn({ referencedColumnName: "cartId" })  
+    cart: Cart
+
 }

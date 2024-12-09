@@ -23,12 +23,15 @@ export class Migration1729551697275 implements MigrationInterface {
                         type: "int",
                     },
                     {
+                        name: "quantity",
+                        type: "decimal",
+                    },
+                    {
                         name: "total",
-                        type: "int",
+                        type: "decimal",
                     },
                 ],
             }),
-            true
         );
     }
 
