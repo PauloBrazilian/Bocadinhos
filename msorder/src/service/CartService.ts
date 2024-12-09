@@ -12,13 +12,27 @@ class CartService {
     }
 
     async createCart(object: any) {
-        const searchProduct = await this.productService.findProductById(object.productId);
-        
+        if (!object.productIds || !Array.isArray(object.productIds) || object.productIds.length === 0) {
+            throw new Error("Invalid or missing 'productIds'. Expected a non-empty array.");
+        }
+    
+        const searchProduct = await this.productService.findProductsByIds(object.productIds);
+    
+        if (!searchProduct || searchProduct.length === 0) {
+            throw new Error("No products available to create a cart.");
+        }
+    
+        const quantityProduct = searchProduct.length;
+        const totalValue = searchProduct.reduce((sum, product) => sum + product.price * product.quantity, 0);
+        const productIds = searchProduct.map(product => product.id);
+            
         const cart = await this.cartRepository.save({
-            personId: searchProduct.id,
-            productIds: object.productId
+            personId: object.personId,
+            productIds: productIds,
+            quantity: quantityProduct,
+            total: totalValue, 
         });
-        
+    
         return cart;
     }
 
@@ -40,7 +54,6 @@ class CartService {
         }
 
         const { personId, productIds} = object;
-    
         searchCart.personId = personId;    
         searchCart.productIds = productIds;
             

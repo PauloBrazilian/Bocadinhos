@@ -1,22 +1,23 @@
-import CartRepository from "../repositories/implementations/CartRepository";
+import BuyCartRepository from "../repositories/implementations/BuyCartRepository";
 import HistoryRepository from "../repositories/implementations/HistoryRepository";
 
 class HistoryService {
     
-    private cartRepository: CartRepository;
+    private buyCartRepository: BuyCartRepository;
     private historyRepository: HistoryRepository;
 
     constructor() {
-        this.cartRepository = new CartRepository();
+        this.buyCartRepository = new BuyCartRepository();
         this.historyRepository = new HistoryRepository();
     }
 
     async createHistory(object: any) {       
-        const getBuyCart = await this.cartRepository.getCart(object.cart[0]);
+        const getBuyCart = await this.buyCartRepository.getBuyCart(object.cart[0]);
         
         const history = await this.historyRepository.save({
             buyCart: getBuyCart,
-            creationDate: object.creationDate
+            creationDate: object.creationDate,
+            status: object.status
         });
         return history;
     }
