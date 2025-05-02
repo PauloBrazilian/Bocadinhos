@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1730568821703" clover="3.2.0">
+  <project timestamp="1730568821703" name="All files">
+    <metrics statements="201" coveredstatements="74" conditionals="26" coveredconditionals="7" methods="50" coveredmethods="15" elements="277" coveredelements="96" complexity="0" loc="201" ncloc="201" packages="9" files="19" classes="19"/>
+    <package name="src">
+      <metrics statements="27" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="DataSource.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\DataSource.ts">
+        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+      </file>
+      <file name="app.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\app.ts">
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\index.ts">
+        <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Schema">
+      <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="CategoryShema.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\Schema\CategoryShema.ts">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+      <file name="ProductShema.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\Schema\ProductShema.ts">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.controller">
+      <metrics statements="46" coveredstatements="18" conditionals="6" coveredconditionals="2" methods="10" coveredmethods="4"/>
+      <file name="CategoryController.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\controller\CategoryController.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+      </file>
+      <file name="ProductController.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\controller\ProductController.ts">
+        <metrics statements="28" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.entity">
+      <metrics statements="14" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Category.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\entity\Category.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+      </file>
+      <file name="Product.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\entity\Product.ts">
+        <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middleware">
+      <metrics statements="26" coveredstatements="0" conditionals="13" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="CategoryMiddleware.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\middleware\CategoryMiddleware.ts">
+        <metrics statements="13" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+      </file>
+      <file name="ProductMiddleware.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\middleware\ProductMiddleware.ts">
+        <metrics statements="13" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.migrations">
+      <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="1725308830467-migration.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\migrations\1725308830467-migration.ts">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+      <file name="1725308851903-migration.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\migrations\1725308851903-migration.ts">
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.repositories">
+      <metrics statements="11" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <file name="CategoryRepository.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\repositories\CategoryRepository.ts">
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="ProductRepository.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\repositories\ProductRepository.ts">
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.routes">
+      <metrics statements="24" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="CategoryRoutes.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\routes\CategoryRoutes.ts">
+        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="ProductRoutes.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\routes\ProductRoutes.ts">
+        <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.service">
+      <metrics statements="37" coveredstatements="37" conditionals="5" coveredconditionals="5" methods="11" coveredmethods="11"/>
+      <file name="CategoryService.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\service\CategoryService.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+      </file>
+      <file name="ProductService.ts" path="C:\Users\M05L02\Documents\Fatec\Bocadinhos\Arrumando\Bocadinhos\src\service\ProductService.ts">
+        <metrics statements="26" coveredstatements="26" conditionals="5" coveredconditionals="5" methods="7" coveredmethods="7"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
+        <line num="11" count="9" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="66" count="3" type="cond" truecount="3" falsecount="0"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
